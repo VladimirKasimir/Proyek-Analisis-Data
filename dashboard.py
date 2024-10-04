@@ -39,3 +39,15 @@ st.subheader("User Count by Weather Condition")
 weather_df = df[df['yr'] == year]
 fig3 = px.pie(weather_df, names='weathersit', values='cnt', title='User Count by Weather Condition')
 st.plotly_chart(fig3)
+
+# Hourly usage analysis
+st.subheader("User Count by Hour")
+hourly_df = df[df['yr'] == year]
+fig4 = px.line(hourly_df, x='hr', y='cnt', title='User Count by Hour', labels={'hr': 'Hour of Day', 'cnt': 'Total Users'})
+st.plotly_chart(fig4)
+
+# Day of the week analysis
+st.subheader("User Count by Day of the Week")
+weekday_df = df[df['yr'] == year]
+fig5 = px.bar(weekday_df, x='weekday', y='cnt', color='weekday', title='User Count by Day of the Week', labels={'cnt': 'Total Users'})
+st.plotly_chart(fig5)
